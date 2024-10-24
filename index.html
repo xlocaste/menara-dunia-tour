@@ -3,11 +3,327 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./output.css">
     <title>Menara Dunia Tour</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link href="src/output.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
 </head>
-<body class="font-poppins">
-    <h1>testing</h1>
+<body class="bg-gray-100">
+
+    <!-- NAVBAR -->
+    <div class="absolute z-10 p-6 bg-transparent w-full">
+        <div class="bg-secondary h-full flex flex-col justify-center items-center w-full p-4">
+            <!-- Bagian Atas: Jam Operasional dan Sosial Media -->
+            <div class="w-full flex justify-between items-center px-6 text-white">
+                <div class="hidden md:flex flex-col w-2/6">
+                    <div class="flex items-center">
+                        <i class="fas fa-clock"></i>
+                        <span class="ml-2">MON-SAT: 6.00AM - 10.00PM</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-calendar"></i>
+                        <span class="ml-2">SUN: CLOSED</span>
+                    </div>
+                </div>
+                <!-- Logo -->
+                <h1 class="flex items-center text-white font-bold text-2xl w-full justify-center">Menara Dunia Tour</h1>
+                <div class="hidden md:flex items-center space-x-4 w-2/6 md:justify-end">
+                    <!-- Icon Sosial Media dan Pilihan Bahasa -->
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-linkedin"></i>
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-flag-usa"></i>
+                        <span>EN</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu Navbar -->
+        <div class="bg-list h-1/2 flex justify-between p-2 items-center">
+            <div id="menu-icon" class="md:text-list text-white text-2xl cursor-pointer">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="hidden md:flex md:flex-row md:justify-center">
+                <ul class="flex space-x-4">
+                    <li class="relative group font-semibold text-white">
+                        <button onclick="" class="focus:outline-none">
+                            HOME
+                        </button>
+                    </li>
+                    <li class="relative group font-semibold text-white">
+                        <button onclick="" class="focus:outline-none">
+                            ABOUT
+                        </button>
+                    </li>
+                    <li class="relative group font-semibold text-white">
+                        <button onclick="" class="focus:outline-none">
+                            PRODUK
+                        </button>
+                    </li>
+                    <li class="relative group font-semibold text-white">
+                        <button onclick="toggleDropdown()" class="focus:outline-none">
+                            PAGES
+                        </button>
+                        <ul id="dropdown" class="absolute left-0 hidden w-40 mt-2 bg-gray-800 text-white">
+                            <li class="py-2 px-4 hover:bg-gray-700">
+                                <a href="#page1">Page 1</a>
+                            </li>
+                            <li class="py-2 px-4 hover:bg-gray-700">
+                                <a href="#page2">Page 2</a>
+                            </li>
+                            <li class="py-2 px-4 hover:bg-gray-700">
+                                <a href="#page3">Page 3</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="relative group font-semibold text-white">
+                        <button onclick="" class="focus:outline-none">
+                            NEWS
+                        </button>
+                    </li>
+                    <li class="relative group font-semibold text-white">
+                        <button onclick="" class="focus:outline-none">
+                            CONTACT
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <!-- Search Container -->
+            <div id="search-container" class="absolute hidden right-20">
+                <input
+                    type="text"
+                    id="search-input"
+                    class="text-black rounded w-36"
+                    placeholder="Search..."
+                />
+            </div>
+            <div id="search-icon" class="text-white text-2xl cursor-pointer">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+
+        <!-- MOBILE -->
+        <div id="mobile-navbar" class="hidden bg-gray-800 text-white p-4 md:hidden">
+            <ul class="space-y-2">
+                <li><a href="#home" class="block py-2">HOME</a></li>
+                <li><a href="#about" class="block py-2">ABOUT</a></li>
+                <li><a href="#produk" class="block py-2">PRODUK</a></li>
+                <li>
+                    <button onclick="toggleDropdownMobile()" class="flex justify-between w-full py-2">PAGES</button>
+                    <ul id="dropdown-mobile" class="hidden bg-gray-700 text-white">
+                        <li><a href="#page1" class="block py-2 px-4">Page 1</a></li>
+                        <li><a href="#page2" class="block py-2 px-4">Page 2</a></li>
+                        <li><a href="#page3" class="block py-2 px-4">Page 3</a></li>
+                    </ul>
+                </li>
+                <li><a href="#news" class="block py-2">NEWS</a></li>
+                <li><a href="#contact" class="block py-2">CONTACT</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <section>
+        <div class="relative flex items-center">
+            <ul id="slider" class="relative w-full transition-transform duration-300 ease-in-out">
+                <li class="h-[50vh]">
+                    <img class="h-screen w-full object-cover bg-center" src="image/mekkah.jpg" alt="">
+                    <div class="absolute h-full inset-0 top-44 flex flex-col items-center justify-center text-white">
+                        <h1 class="text-6xl font-bold text-center">Solution for the Hajj and Umroh</h1>
+                        <button class="bg-secondary p-4 rounded-full mt-4"><a href="#contact">CONTACT PERSON</a></button>
+                    </div>
+                </li>
+                <li class="h-[50vh] hidden">
+                    <img class="h-screen w-full object-cover bg-center" src="image/mekkah1.jpg" alt="">
+                    <div class="absolute h-full inset-0 top-44 flex flex-col items-center justify-center text-white">
+                        <h1 class="text-6xl font-bold text-center">Solution for the Hajj and Umroh</h1>
+                        <button class="bg-secondary p-4 rounded-full mt-4">CONTACT PERSON</button>
+                    </div>
+                </li>
+                <li class="h-[50vh] hidden">
+                    <img class="h-screen w-full object-cover bg-center" src="image/mekkah3.jpg" alt="">
+                    <div class="absolute h-full inset-0 top-44 flex flex-col items-center justify-center text-white">
+                        <h1 class="text-6xl font-bold text-center">Solution for the Hajj and Umroh</h1>
+                        <button class="bg-secondary p-4 rounded-full mt-4">CONTACT PERSON</button>
+                    </div>
+                </li>
+            </ul>
+            <div class="absolute px-2 flex h-full w-full top-36 left-0">
+                <div class="my-auto w-full flex justify-between">
+                    <button onclick="prev()" class="bg-white p-2 bg-opacity-70 shadow-lg rounded-full">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button onclick="next()" class="bg-white p-2 bg-opacity-70 shadow-lg rounded-full">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-5 left-1/2 transform -translate-x-1/2 flex space-x-2">
+            <span class="w-3 h-3 bg-white rounded-full cursor-pointer" onclick="goToSlide(0)"></span>
+            <span class="w-3 h-3 bg-white rounded-full cursor-pointer" onclick="goToSlide(1)"></span>
+            <span class="w-3 h-3 bg-white rounded-full cursor-pointer" onclick="goToSlide(2)"></span>
+        </div>
+    </section>
+
+    <!-- PRODUK -->
+    <div class="mx-auto p-6 flex justify-center space-x-6 mt-80">
+        <!-- Card 1: Umrah Package -->
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden w-80">
+            <img class="w-full h-48 object-cover" src="https://via.placeholder.com/300x200" alt="Umrah Image">
+            <div class="p-6">
+                <h3 class="font-semibold text-lg">Umrah Package</h3>
+                <p class="text-gray-500 mb-4">Mecca: <span class="font-bold">⭐⭐⭐⭐⭐</span> (Quad Room)<br>
+                200 M to Masjidil Haram</p>
+                <p class="text-gray-500 mb-4">Medina: <span class="font-bold">⭐⭐⭐⭐⭐</span> (Quad Room)<br>
+                200 M to Nabawi Mosque</p>
+                <p class="text-red-500 line-through">16,000 USD/Pax</p>
+                <p class="text-blue-600 font-bold text-xl">15,000 USD/Pax</p>
+                <div class="mt-4 flex justify-between items-center">
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded">Apply Now</button>
+                    <button class="bg-gray-300 text-black px-4 py-2 rounded">Read More</button>
+                </div>
+                <div class="mt-4">
+                    <div class="bg-gray-200 rounded-full h-2.5 mb-4">
+                        <div class="bg-yellow-400 h-2.5 rounded-full" style="width: 66%;"></div>
+                    </div>
+                    <p class="text-gray-600 text-sm">Booked: 100/150</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2: Hajj Package -->
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden w-80">
+            <img class="w-full h-48 object-cover" src="https://via.placeholder.com/300x200" alt="Hajj Image">
+            <div class="p-6">
+                <h3 class="font-semibold text-lg">Hajj Package</h3>
+                <p class="text-gray-500 mb-4">Mecca: <span class="font-bold">⭐⭐⭐⭐⭐</span> (Quad Room)<br>
+                200 M to Masjidil Haram</p>
+                <p class="text-gray-500 mb-4">Medina: <span class="font-bold">⭐⭐⭐⭐⭐</span> (Quad Room)<br>
+                200 M to Nabawi Mosque</p>
+                <p class="text-red-500 line-through">16,000 USD/Pax</p>
+                <p class="text-blue-600 font-bold text-xl">15,000 USD/Pax</p>
+                <div class="mt-4 flex justify-between items-center">
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded">Apply Now</button>
+                    <button class="bg-gray-300 text-black px-4 py-2 rounded">Read More</button>
+                </div>
+                <div class="mt-4">
+                    <div class="bg-gray-200 rounded-full h-2.5 mb-4">
+                        <div class="bg-yellow-400 h-2.5 rounded-full" style="width: 66%;"></div>
+                    </div>
+                    <p class="text-gray-600 text-sm">Booked: 100/150</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3: Ramadhan Umrah -->
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden w-80">
+            <img class="w-full h-48 object-cover" src="https://via.placeholder.com/300x200" alt="Ramadhan Image">
+            <div class="p-6">
+                <h3 class="font-semibold text-lg">Ramadhan Umrah</h3>
+                <p class="text-gray-500 mb-4">Mecca: <span class="font-bold">⭐⭐⭐⭐⭐</span> (Quad Room)<br>
+                200 M to Masjidil Haram</p>
+                <p class="text-gray-500 mb-4">Medina: <span class="font-bold">⭐⭐⭐⭐⭐</span> (Quad Room)<br>
+                200 M to Nabawi Mosque</p>
+                <p class="text-red-500 line-through">16,000 USD/Pax</p>
+                <p class="text-blue-600 font-bold text-xl">15,000 USD/Pax</p>
+                <div class="mt-4 flex justify-between items-center">
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded">Apply Now</button>
+                    <button class="bg-gray-300 text-black px-4 py-2 rounded">Read More</button>
+                </div>
+                <div class="mt-4">
+                    <div class="bg-gray-200 rounded-full h-2.5 mb-4">
+                        <div class="bg-yellow-400 h-2.5 rounded-full" style="width: 66%;"></div>
+                    </div>
+                    <p class="text-gray-600 text-sm">Booked: 100/150</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let curr_slide = 0;
+        const sliderElemnt = document.getElementById('slider');
+        const slides = sliderElemnt.getElementsByTagName('li');
+        const total_slides = slides.length;
+        function next() {
+            curr_slide = (curr_slide + 1) % total_slides;
+            slide_show();
+        }
+        function prev() {
+            curr_slide = (curr_slide - 1 + total_slides) % total_slides;
+            slide_show();
+        }
+        function slide_show() {
+            for (let index = 0; index < total_slides; index++) {
+                slides[index].classList.toggle('hidden', index !== curr_slide); 
+            }
+        }
+        slide_show();
+
+        function toggleDropdown() {
+            const dropdown = document.getElementById("dropdown");
+            dropdown.classList.toggle("hidden");
+        }
+
+        window.onclick = function(event) {
+            const dropdown = document.getElementById("dropdown");
+            if (!event.target.matches('button')) {
+                dropdown.classList.add("hidden");
+            }
+        }
+
+        // Fungsi untuk toggle menu mobile
+        function toggleMobileMenu() {
+            const mobileNavbar = document.getElementById("mobile-navbar");
+            mobileNavbar.classList.toggle("hidden");
+        }
+
+        // Fungsi untuk toggle dropdown mobile
+        function toggleDropdownMobile() {
+            const dropdownMobile = document.getElementById("dropdown-mobile");
+            dropdownMobile.classList.toggle("hidden");
+        }
+
+        // Event listener untuk ikon menu
+        document.getElementById("menu-icon").onclick = toggleMobileMenu;
+
+        // Event listener untuk dropdown mobile
+        function setupDropdown() {
+            const dropdownButton = document.querySelector('#dropdown-mobile button');
+            dropdownButton.onclick = toggleDropdownMobile;
+        }
+        
+        // Pastikan dropdown terpasang setelah DOM siap
+        document.addEventListener('DOMContentLoaded', setupDropdown);
+
+        // Fungsi untuk toggle search input
+        document.getElementById("search-icon").onclick = function() {
+            const searchContainer = document.getElementById("search-container");
+            searchContainer.classList.toggle("hidden");
+            document.getElementById("search-input").focus(); // Fokus pada input saat ditampilkan
+        };
+
+        // Fungsi untuk menangani pencarian dengan Enter
+        document.getElementById("search-input").addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                const query = this.value;
+                if (query) {
+                    // Ganti dengan logika pencarian yang sesuai
+                    alert("Searching for: " + query);
+                    // Di sini Anda dapat mengarahkan ke halaman hasil pencarian atau melakukan tindakan lain
+                }
+            }
+        });
+    </script>
+
 </body>
 </html>
