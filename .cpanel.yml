@@ -1,0 +1,12 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/menaraduniatour/public_html/
+    - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp input.css $DEPLOYPATH
+    - /bin/cp output.css $DEPLOYPATH
+    - /bin/cp package-lock.json $DEPLOYPATH
+    - /bin/cp package.json $DEPLOYPATH
+    - /bin/cp tailwind.config.js $DEPLOYPATH
+    - /bin/cp -R image $DEPLOYPATH
+    - /bin/cp -R src $DEPLOYPATH
